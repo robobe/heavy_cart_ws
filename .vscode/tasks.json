@@ -1,0 +1,54 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "PlatformIO: Build",
+        "type": "shell",
+        "command": "pio",
+        "args": [
+          "run"
+        ],
+        "group": {
+          "kind": "build",
+          "isDefault": true
+        },
+        "problemMatcher": [
+          "$gcc"
+        ],
+        "detail": "Custom task to build the PlatformIO project."
+      },
+      {
+        "label": "PlatformIO: Upload",
+        "type": "shell",
+        "command": "pio",
+        "args": [
+          "run",
+          "--target",
+          "upload"
+        ],
+        "group": {
+          "kind": "build",
+          "isDefault": false
+        },
+        "problemMatcher": [
+          "$gcc"
+        ],
+        "detail": "Custom task to upload the firmware to the board using PlatformIO."
+      },
+      {
+        "label": "PlatformIO: Monitor Serial",
+        "type": "shell",
+        "command": "pio",
+        "args": [
+          "device", "monitor"
+        ],
+        "group": {
+          "kind": "test",
+          "isDefault": true
+        },
+        "problemMatcher": [],
+        "detail": "Custom task to monitor the serial output using PlatformIO."
+      }
+    ]
+  }
+  
