@@ -1,8 +1,14 @@
 FROM humble:dev
 
 RUN apt-get update && apt-get install -y \
-    curl \
-    putty \
+        curl \
+        putty \
+        # ros
+        ros-humble-ros2-control \
+        ros-humble-turtlebot3-teleop \
+        ros-humble-gazebo-ros2-control \
+        ros-humble-ros2-controllers \
+        ros-humble-xacro \
     && rm -rf /var/lib/apt/lists/*
 
 RUN usermod -aG dialout user
