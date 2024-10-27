@@ -1,0 +1,9 @@
+<library path="heavy_cart_arduino">
+    <class name="heavy_cart_arduino"
+           type="heavy_cart_arduino::HeavyCartArduinoHardware"
+           base_class_type="hardware_interface::SystemInterface">
+      <description>
+        The ROS2 Control minimal robot protocol
+      </description>
+    </class>
+  </library>

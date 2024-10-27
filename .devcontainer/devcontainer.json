@@ -15,7 +15,7 @@
         "--security-opt=apparmor:unconfined",
         "--device=/dev/dri:/dev/dri",
         "-v=/dev:/dev",
-        "--device-cgroup-rule=c 188:* rmw"
+        "--device-cgroup-rule=c 13:* rmw"
 	  ],
     "containerEnv": {
         "DISPLAY": "${localEnv:DISPLAY}",

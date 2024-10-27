@@ -1,0 +1,17 @@
+controller_manager:
+  ros__parameters:
+    update_rate: 10  # Hz
+
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+    arduino_controller:
+      type: diff_drive_controller/DiffDriveController
+
+arduino_controller:
+  ros__parameters:
+    left_wheel_names: ["left_wheel_joint_xxx"]
+    right_wheel_names: ["right_wheel_joint_xxx"]
+    wheel_separation: 0.10
+    #wheels_per_side: 1  # actually 2, but both are controlled by 1 signal
+    wheel_radius: 0.015

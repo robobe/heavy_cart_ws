@@ -2,7 +2,7 @@
 
 #define RXD2 16  // You can change this to other GPIO pins if needed
 #define TXD2 17  // You can change this to other GPIO pins if needed
-
+A
 void setup() {
   // Start the default Serial for debugging (USB serial communication)
   Serial.begin(9600);
