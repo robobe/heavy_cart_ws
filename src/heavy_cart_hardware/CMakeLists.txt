@@ -12,6 +12,9 @@ find_package(controller_manager REQUIRED)
 find_package(pluginlib REQUIRED)
 find_package(rclcpp_lifecycle REQUIRED)
 
+add_executable(mcp4725_test tests/mcp4725.cpp src/mcp4725.cpp)
+target_include_directories(mcp4725_test PRIVATE include)
+
 set(THIS_PACKAGE_INCLUDE_DEPENDS
   hardware_interface
   pluginlib
