@@ -1,43 +1,42 @@
-#ifndef __HEAVY_CART_HARDWARE__
-#define __HEAVY_CART_HARDWARE__
+#pragma once
 
+#include <vector>
+#include <memory>
 #include "hardware_interface/handle.hpp"
 #include "hardware_interface/hardware_info.hpp"
 #include "hardware_interface/system_interface.hpp"
 #include "hardware_interface/types/hardware_interface_return_values.hpp"
-#include "rclcpp_lifecycle/node_interfaces/lifecycle_node_interface.hpp"
-#include "rclcpp_lifecycle/state.hpp"
 #include "rclcpp/clock.hpp"
 #include "rclcpp/duration.hpp"
 #include "rclcpp/macros.hpp"
 #include "rclcpp/time.hpp"
+#include "rclcpp_lifecycle/node_interfaces/lifecycle_node_interface.hpp"
+#include "rclcpp_lifecycle/state.hpp"
 
-namespace heavy_cart_arduino
+#include "heavy_cart_hardware/mcp4725.hpp"
+
+
+namespace heavy_cart
 {
     struct Config
     {
-        std::string left_wheel_name = "";
-        std::string right_wheel_name = "";
+        std::string i2c_device_name;
+        uint8_t left_dac_i2c_address;
+        uint8_t right_dac_i2c_address;
+
     };
 
-    struct ServoJoint
-    {
+    struct Motor{
         std::string name = "";
-        // std::unique_ptr<AngularServo> servo;
-        double pos = 0;
+        std::unique_ptr<MCP4725> driver;
+        double vel = 0;
         double cmd = 0;
     };
 
-    class HeavyCartArduinoHardware : public hardware_interface::SystemInterface
+    class HeavyCartI2cDiffHardware : public hardware_interface::SystemInterface
     {
-        // on_configure;
-        // on_cleanup;
-        // on_activate;
-        // on_deactivate;
-        // on_shutdown;
-        // on_error;
-    public:
-        HeavyCartArduinoHardware();
+        public:
+        RCLCPP_SHARED_PTR_DEFINITIONS(HeavyCartI2cDiffHardware)
 
         hardware_interface::CallbackReturn on_init(
             const hardware_interface::HardwareInfo &info) override;
@@ -63,11 +62,10 @@ namespace heavy_cart_arduino
 
         hardware_interface::return_type write(
             const rclcpp::Time &time, const rclcpp::Duration &period) override;
-
     private:
-        ServoJoint _left_joint;
-        ServoJoint _right_joint;
         Config cfg_;
+        std::vector<Motor> motors_;
+        std::vector<double> hw_commands_;
+        std::vector<double> hw_velocities_;
     };
 }
-#endif

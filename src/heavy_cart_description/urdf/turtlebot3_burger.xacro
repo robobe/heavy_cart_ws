@@ -8,7 +8,8 @@
   <!-- use gazebo_control or ros2_control -->
   <!-- <xacro:include filename="$(find heavy_cart_description)/urdf/gazebo_control.xacro" /> -->
   <!-- <xacro:include filename="$(find heavy_cart_description)/urdf/ros2_control.xacro" /> -->
-  <xacro:include filename="$(find heavy_cart_description)/urdf/ros2_control_heavy_cart.xacro" />
+  <!-- <xacro:include filename="$(find heavy_cart_description)/urdf/ros2_control_heavy_cart.xacro" /> -->
+  <xacro:include filename="$(find heavy_cart_description)/urdf/heavy_cart_i2c_control.xacro" />
   
 
   <link name="base_footprint"/>

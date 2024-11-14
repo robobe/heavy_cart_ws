@@ -26,7 +26,7 @@ def generate_launch_description():
         Node(
             package='controller_manager',
             executable='spawner',
-            arguments=['joint1_position_controller', '--controller-manager', '/controller_manager'],
+            arguments=['i2c_controller', '--controller-manager', '/controller_manager'],
             output='screen'
         ),
     ])

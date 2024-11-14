@@ -1,0 +1,10 @@
+<library path="heavy_cart_i2c_diff_hw">
+
+  <class name="heavy_cart_i2c_diff_hw"
+    type="heavy_cart::HeavyCartI2cDiffHardware"
+    base_class_type="hardware_interface::SystemInterface">
+    <description>
+      diff drive i2c control
+</description>
+  </class>
+</library>
