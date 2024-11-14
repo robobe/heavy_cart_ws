@@ -15,7 +15,9 @@
         "--security-opt=apparmor:unconfined",
         "--device=/dev/dri:/dev/dri",
         "-v=/dev:/dev",
-        "--device-cgroup-rule=c 13:* rmw"
+        "--device-cgroup-rule=c 13:* rmw",
+        "--device-cgroup-rule=c 140:* rmw",
+        "--device=/dev/i2c-16"
 	  ],
     "containerEnv": {
         "DISPLAY": "${localEnv:DISPLAY}",
@@ -29,6 +31,7 @@
             "extensions": [
                 "ms-vscode.cpptools",
                 "twxs.cmake",
+                "ms-vscode.cmake-tools",
                 "albert.tabout",
                 "redhat.vscode-xml",
                 "ms-python.python",
